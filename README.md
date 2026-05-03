@@ -27,5 +27,9 @@ It demonstrates CRUD (Create, Read, Update, Delete) operations in a simple comma
 - Build GUI version using Tkinter
 - Integrate database (SQLite)
 
+- ## Output Screenshot
+
+![Output](student - managment.png)
+
 ## Author
 Mrinal Parashar
