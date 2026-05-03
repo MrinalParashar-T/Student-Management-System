@@ -1,74 +1,92 @@
 students = []
 
-def add_student():
+def addStudent():
     id = input("Enter ID: ")
     name = input("Enter Name: ")
     age = input("Enter Age: ")
-    
-    student = {"id": id, "name": name, "age": age}
-    students.append(student)
-    print("✅ Student added successfully!\n")
 
-def view_students():
-    if not students:
-        print("No records found!\n")
-        return
-    
-    for s in students:
-        print(f"ID: {s['id']}, Name: {s['name']}, Age: {s['age']}")
-    print()
+    data = {
+        "id": id,
+        "name": name,
+        "age": age
+    }
 
-def search_student():
-    id = input("Enter ID to search: ")
-    
-    for s in students:
-        if s["id"] == id:
-            print(f"Found: {s}")
+    students.append(data)
+    print("Student added!\n")
+
+
+def showStudents():
+    if len(students) == 0:
+        print("No students found\n")
+    else:
+        for i in students:
+            print("ID:", i["id"], "Name:", i["name"], "Age:", i["age"])
+        print()
+
+
+def searchStudent():
+    sid = input("Enter ID: ")
+
+    found = False
+    for i in students:
+        if i["id"] == sid:
+            print("Student found:", i)
+            found = True
+
+    if not found:
+        print("Not found\n")
+
+
+def deleteStudent():
+    sid = input("Enter ID to delete: ")
+
+    for i in students:
+        if i["id"] == sid:
+            students.remove(i)
+            print("Deleted\n")
             return
-    print("❌ Student not found!\n")
 
-def delete_student():
-    id = input("Enter ID to delete: ")
-    
-    for s in students:
-        if s["id"] == id:
-            students.remove(s)
-            print("🗑️ Deleted successfully!\n")
-            return
-    print("❌ Student not found!\n")
+    print("Student not found\n")
 
-def update_student():
-    id = input("Enter ID to update: ")
-    
-    for s in students:
-        if s["id"] == id:
-            s["name"] = input("Enter new name: ")
-            s["age"] = input("Enter new age: ")
-            print("✏️ Updated successfully!\n")
+
+def updateStudent():
+    sid = input("Enter ID to update: ")
+
+    for i in students:
+        if i["id"] == sid:
+            newName = input("New name: ")
+            newAge = input("New age: ")
+
+            i["name"] = newName
+            i["age"] = newAge
+
+            print("Updated\n")
             return
-    print("❌ Student not found!\n")
+
+    print("Not found\n")
+
 
 while True:
-    print("1. Add Student")
-    print("2. View Students")
-    print("3. Search Student")
-    print("4. Delete Student")
-    print("5. Update Student")
-    print("6. Exit")
-    
-    choice = input("Enter choice: ")
-    
-    if choice == "1":
-        add_student()
-    elif choice == "2":
-        view_students()
-    elif choice == "3":
-        search_student()
-    elif choice == "4":
-        delete_student()
-    elif choice == "5":
-        update_student()
-    elif choice == "6":
+    print("1.Add")
+    print("2.Show")
+    print("3.Search")
+    print("4.Delete")
+    print("5.Update")
+    print("6.Exit")
+
+    ch = input("Enter choice: ")
+
+    if ch == "1":
+        addStudent()
+    elif ch == "2":
+        showStudents()
+    elif ch == "3":
+        searchStudent()
+    elif ch == "4":
+        deleteStudent()
+    elif ch == "5":
+        updateStudent()
+    elif ch == "6":
         break
     else:
-        print("Invalid choice!\n")
+        print("Wrong choice\n")
