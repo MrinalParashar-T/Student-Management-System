@@ -29,7 +29,7 @@ It demonstrates CRUD (Create, Read, Update, Delete) operations in a simple comma
 
 - ## Output Screenshot
 
-![Output](student-managment.png)
+![Output](student-management.png)
 
 ## Author
 Mrinal Parashar
